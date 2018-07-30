@@ -1,4 +1,4 @@
-# OpenCVColorTracker
+# OpenCV color tracker
 
 At this point, only one color is supported (green-blue).
 
