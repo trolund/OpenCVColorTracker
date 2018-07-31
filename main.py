@@ -45,35 +45,25 @@ for x in vallist:
 
 index = vallist.index(max(vallist))
 
-upper = int(vallist[index]) + 20
-lower = int(vallist[index]) - 20
+ColerRange = int(100)
 
-if upper > 255:
-    upper = 255
-
-if lower < 0:
-    lower = 0
+upperList = [int(vallist[0])+ColerRange,int(vallist[1])+ColerRange,int(vallist[2])+ColerRange]
+lowerList = [int(vallist[0])-ColerRange,int(vallist[1])-ColerRange,int(vallist[2])-ColerRange]
 
 
-# color setup. --> blå farv
-'''
-if index == 0:
-    lowerBound = np.array([lower, int(vallist[1]), int(vallist[2])])
-elif index == 1:
-    lowerBound = np.array([int(vallist[0]), lower, int(vallist[2])])
-else:
-    lowerBound = np.array([int(vallist[0]), int(vallist[1]), lower])
+# lowerBound=np.array([33,80,40])
+# upperBound=np.array([102,255,255])
 
-if index == 0:
-    upperBound = np.array([upper, int(vallist[1]), int(vallist[2])])
-elif index == 1:
-    upperBound = np.array([int(vallist[0]), upper, int(vallist[2])])
-else:
-    upperBound = np.array([int(vallist[0]), int(vallist[1]), upper])
-'''
+for n, i in enumerate(lowerList):
+       if i < 0:
+            lowerList[n] = 0
 
-lowerBound=np.array([33,80,40])
-upperBound=np.array([102,255,255])
+for n, i in enumerate(upperList):
+       if i > 255:
+            upperList[n] = 255
+
+lowerBound=np.array(lowerList)
+upperBound=np.array(upperList)
 
 print(upperBound)
 print(lowerBound)
